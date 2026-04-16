@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team - OSKA Leadership & Professionals</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Team-specific styles */
+        .team-hero {
+            background: linear-gradient(135deg, #8b5cf6, #ec4899, #06b6d4);
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+        
+        .team-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            border: 1px solid #f3f4f6;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .team-photo {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team-photo i {
+            font-size: 4rem;
+            color: #9ca3af;
+        }
+        
+        .team-photo::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ea580c, #8b5cf6, #06b6d4);
+        }
+        
+        .team-info {
+            padding: 32px 24px;
+        }
+        
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        
+        .team-title {
+            font-size: 1.125rem;
+            color: #ea580c;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        
+        .team-bio {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        
+        .team-expertise {
+            margin-bottom: 24px;
+        }
+        
+        .team-expertise h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 12px;
+        }
+        
+        .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .expertise-tag {
+            background: #f0fdf4;
+            color: #10b981;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .team-contact {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: #ea580c;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .contact-btn:hover {
+            background: #dc2626;
+            transform: translateY(-1px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .social-link {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background: #ea580c;
+            color: white;
+        }
+        
+        .leadership-section {
+            margin-bottom: 80px;
+        }
+        
+        .department-section {
+            margin-bottom: 64px;
+        }
+        
+        .department-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .department-subtitle {
+            font-size: 1.125rem;
+            color: #6b7280;
+            text-align: center;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .team-info {
+                padding: 24px 20px;
+            }
+            
+            .team-contact {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">
+                    <img src="assets/oska-logo.png" alt="OSKA Logo" class="logo-img">
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link">About</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Services <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="services/oil-gas.html" class="dropdown-item">Oil & Gas Services</a>
+                        <a href="services/car-mart.html" class="dropdown-item">Car Mart</a>
+                        <a href="services/farming.html" class="dropdown-item">Farming Concepts</a>
+                        <a href="services/bricks-keys.html" class="dropdown-item">Bricks & Keys</a>
+                        <a href="services/acquisition.html" class="dropdown-item">Acquisition & Value Creation</a>
+                    </div>
+                </div>
+                <a href="team.html" class="nav-link active">Team</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero team-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Meet Our <span class="highlight">Team</span>
+                </h1>
+                <p class="hero-subtitle">
+                    The experienced professionals driving OSKA's success across multiple industries. 
+                    Our diverse team brings together decades of expertise and innovation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="section leadership-section">
+        <div class="container">
+            <div class="department-section">
+                <h2 class="department-title">Executive Leadership</h2>
+                <p class="department-subtitle">
+                    Our executive team provides strategic direction and leadership across all OSKA operations
+                </p>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Olumide Adebayo</h3>
+                            <p class="team-title">Chief Executive Officer & Founder</p>
+                            <p class="team-bio">
+                                With over 15 years of experience in multi-industry business development, Olumide founded OSKA with a vision to create sustainable value across diverse sectors. His strategic leadership has driven the company's expansion into oil & gas, automotive, agriculture, and real estate.
+                            </p>
+                            <div class="team-expertise">
+                                <h4>Expertise:</h4>
+                                <div class="expertise-tags">
+                                    <span class="expertise-tag">Strategic Planning</span>
+                                    <span class="expertise-tag">Business Development</span>
+                                    <span class="expertise-tag">Leadership</span>
+                                    <span class="expertise-tag">M&A</span>
+                                </div>
+                            </div>
+                            <div class="team-contact">
+                                <a href="mailto:ceo@oska.ng" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Sarah Okonkwo</h3>
+                            <p class="team-title">Chief Operating Officer</p>
+                            <p class="team-bio">
+                                Sarah brings exceptional operational expertise to OSKA, overseeing day-to-day operations across all business units. Her background in process optimization and team management ensures efficient delivery of services across our diverse portfolio.
+                            </p>
+                            <div class="team-expertise">
+                                <h4>Expertise:</h4>
+                                <div class="expertise-tags">
+                                    <span class="expertise-tag">Operations Management</span>
+                                    <span class="expertise-tag">Process Optimization</span>
+                                    <span class="expertise-tag">Team Leadership</span>
+                                    <span class="expertise-tag">Quality Assurance</span>
+                                </div>
+                            </div>
+                            <div class="team-contact">
+                                <a href="mailto:coo@oska.ng" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Department Heads -->
+            <div class="department-section">
+                <h2 class="department-title">Department Heads</h2>
+                <p class="department-subtitle">
+                    Industry experts leading our specialized service divisions
+                </p>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <i class="fas fa-gas-pump"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Dr. Emeka Nwankwo</h3>
+                            <p class="team-title">Head of Oil & Gas Services</p>
+                            <p class="team-bio">
+                                Dr. Nwankwo leads our petroleum services division with over 20 years of experience in the oil and gas industry. His expertise in upstream and downstream operations ensures our clients receive world-class service and technical support.
+                            </p>
+                            <div class="team-expertise">
+                                <h4>Expertise:</h4>
+                                <div class="expertise-tags">
+                                    <span class="expertise-tag">Petroleum Engineering</span>
+                                    <span class="expertise-tag">Safety Management</span>
+                                    <span class="expertise-tag">Technical Consulting</span>
+                                    <span class="expertise-tag">Project Management</span>
+                                </div>
+                            </div>
+                            <div class="team-contact">
+                                <a href="mailto:oilgas@oska.ng" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Kemi Adeyemi</h3>
+                            <p class="team-title">Head of Car Mart Division</p>
+                            <p class="team-bio">
+                                Kemi oversees our automotive sales and service operations, bringing extensive experience in automotive retail and customer service. Her leadership has established OSKA Car Mart as a trusted name in premium vehicle sales.
+                            </p>
+                            <div class="team-expertise">
+                                <h4>Expertise:</h4>
+                                <div class="expertise-tags">
+                                    <span class="expertise-tag">Automotive Sales</span>
+                                    <span class="expertise-tag">Customer Relations</span>
+                                    <span class="expertise-tag">Inventory Management</span>
+                                    <span class="expertise-tag">Service Operations</span>
+                                </div>
+                            </div>
+                            <div class="team-contact">
+                                <a href="mailto:carmart@oska.ng" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Adeola Farming</h3>
+                            <p class="team-title">Head of Farming Concepts</p>
+                            <p class="team-bio">
+                                Adeola leads our agricultural division, combining traditional farming knowledge with modern agricultural technology. Her innovative approach to sustainable farming has helped numerous clients optimize their agricultural operations.
+                            </p>
+                            <div class="team-expertise">
+                                <h4>Expertise:</h4>
+                                <div class="expertise-tags">
+                                    <span class="expertise-tag">Sustainable Agriculture</span>
+                                    <span class="expertise-tag">Crop Management</span>
+                                    <span class="expertise-tag">Agricultural Technology</span>
+                                    <span class="expertise-tag">Farm Consulting</span>
+                                </div>
+                            </div>
+                            <div class="team-contact">
+                                <a href="mailto:farming@oska.ng" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Tunde Olatunji</h3>
+                            <p class="team-title">Head of Bricks & Keys</p>
+                            <p class="team-bio">
+                                Tunde manages our real estate development and property management services. With a strong background in construction and real estate investment, he ensures quality delivery in all our property projects.
+                            </p>
+                            <div class="team-expertise">
+                                <h4>Expertise:</h4>
+                                <div class="expertise-tags">
+                                    <span class="expertise-tag">Real Estate Development</span>
+                                    <span class="expertise-tag">Property Management</span>
+                                    <span class="expertise-tag">Construction Management</span>
+                                    <span class="expertise-tag">Investment Analysis</span>
+                                </div>
+                            </div>
+                            <div class="team-contact">
+                                <a href="mailto:realestate@oska.ng" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-photo">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Funmi Adebisi</h3>
+                            <p class="team-title">Head of Acquisition & Value Creation</p>
+                            <p class="team-bio">
+                                Funmi leads our strategic acquisition and value creation initiatives. Her expertise in financial analysis, due diligence, and post-acquisition integration has been instrumental in OSKA's growth strategy.
+                            </p>
+                            <div class="team-expertise">
+                                <h4>Expertise:</h4>
+                                <div class="expertise-tags">
+                                    <span class="expertise-tag">M&A Strategy</span>
+                                    <span class="expertise-tag">Financial Analysis</span>
+                                    <span class="expertise-tag">Due Diligence</span>
+                                    <span class="expertise-tag">Value Creation</span>
+                                </div>
+                            </div>
+                            <div class="team-contact">
+                                <a href="mailto:acquisition@oska.ng" class="contact-btn">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact
+                                </a>
+                                <div class="social-links">
+                                    <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section bg-purple-gradient">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Want to Join Our Team?</h2>
+                <p>
+                    We're always looking for talented professionals to join our growing team across all industries
+                </p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn btn-white">
+                        View Open Positions
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="contact.html" class="btn btn-outline">
+                        Contact HR
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="assets/oska-logo.png" alt="OSKA Logo" class="logo-img">
+                    </div>
+                    <p>Your trusted partner across multiple industries</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services/oil-gas.html">Oil & Gas</a></li>
+                        <li><a href="services/car-mart.html">Car Mart</a></li>
+                        <li><a href="services/farming.html">Farming</a></li>
+                        <li><a href="services/bricks-keys.html">Real Estate</a></li>
+                        <li><a href="services/acquisition.html">Acquisition and Value Creation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="team.html">Our Team</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>
+                        Email: info@oska.ng<br>
+                        Phone: +234 813 750 3380
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 OSKA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

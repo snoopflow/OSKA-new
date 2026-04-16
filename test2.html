@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About OSKA - Leadership & Company Profile</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .nav-brand .brand-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #ea580c;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-brand i {
+            margin-right: 8px;
+            font-size: 28px;
+        }
+
+        .brand-text {
+            background: linear-gradient(135deg, #ea580c, #dc2626);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: #ea580c;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            color: white;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
+            position: relative;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: bold;
+            margin-bottom: 24px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 3vw, 1.5rem);
+            margin-bottom: 32px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background: #f8fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: #6b7280;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Company Story */
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .story-text {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: #374151;
+        }
+
+        .story-text p {
+            margin-bottom: 24px;
+        }
+
+        .story-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 25px rgba(0,0,0,0.15);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Leadership Team */
+        .leadership-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 48px;
+        }
+
+        .leader-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .leader-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #ea580c, #dc2626);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .leader-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .leader-info {
+            padding: 32px 24px;
+        }
+
+        .leader-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .leader-title {
+            font-size: 1.125rem;
+            color: #ea580c;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .leader-bio {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .leader-contact {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .contact-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6b7280;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            background: #ea580c;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 32px 24px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .value-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ea580c, #dc2626);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 24px;
+        }
+
+        .value-title {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 16px;
+        }
+
+        .value-description {
+            color: #6b7280;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, #ea580c, #dc2626);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 48px;
+        }
+
+        .stat-item {
+            padding: 24px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.125rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background: #111827;
+            color: white;
+            padding: 64px 0 32px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 48px;
+            margin-bottom: 48px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand i {
+            color: #ea580c;
+        }
+
+        .footer-section h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-section p {
+            color: #9ca3af;
+            line-height: 1.6;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 32px;
+            text-align: center;
+            color: #9ca3af;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+
+            .leadership-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+                min-height: 50vh;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <a href="index.html" class="brand-link">
+                    <i class="fas fa-building"></i>
+                    <span class="brand-text">OSKA</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">About OSKA</h1>
+                <p class="hero-subtitle">
+                    Building excellence across multiple industries with integrity, innovation, and unwavering commitment to our clients' success.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Story Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Story</h2>
+                <p class="section-subtitle">
+                    From humble beginnings to industry leadership across multiple sectors
+                </p>
+            </div>
+            <div class="story-content">
+                <div class="story-text">
+                    <p>
+                        Founded with a vision to transform industries and create lasting value, OSKA has grown from a small startup to a diversified company operating across oil & gas, automotive, agriculture, real estate, and strategic acquisitions.
+                    </p>
+                    <p>
+                        Our journey began with a simple belief: that excellence in service delivery, combined with innovative solutions and unwavering integrity, could make a meaningful difference in the lives of our clients and communities.
+                    </p>
+                    <p>
+                        Today, we continue to build on that foundation, expanding our reach while maintaining the personal touch and commitment to quality that has defined us from the beginning.
+                    </p>
+                </div>
+                <div class="story-image">
+                    <img src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="OSKA Office Building">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Leadership Team</h2>
+                <p class="section-subtitle">
+                    Meet the visionary leaders driving OSKA's success across all sectors
+                </p>
+            </div>
+            <div class="leadership-grid">
+                <!-- CEO/Founder -->
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <i class="fas fa-user-tie"></i>
+                        <!-- Replace with actual image: <img src="images/ceo-photo.jpg" alt="CEO Name"> -->
+                    </div>
+                    <div class="leader-info">
+                        <h3 class="leader-name">[CEO Name]</h3>
+                        <p class="leader-title">Chief Executive Officer & Founder</p>
+                        <p class="leader-bio">
+                            With over [X] years of experience in business development and strategic leadership, [Name] founded OSKA with a vision to create a diversified company that delivers excellence across multiple industries. Under their leadership, OSKA has expanded into five key sectors while maintaining a commitment to innovation and client satisfaction.
+                        </p>
+                        <div class="leader-contact">
+                            <a href="mailto:ceo@oska.ng" class="contact-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="contact-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COO -->
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <i class="fas fa-user-cog"></i>
+                        <!-- Replace with actual image: <img src="images/coo-photo.jpg" alt="COO Name"> -->
+                    </div>
+                    <div class="leader-info">
+                        <h3 class="leader-name">[COO Name]</h3>
+                        <p class="leader-title">Chief Operating Officer</p>
+                        <p class="leader-bio">
+                            [Name] brings extensive operational expertise to OSKA, overseeing day-to-day operations across all business units. With a background in [relevant field], they ensure seamless coordination between our diverse service offerings and maintain the high standards of quality that define the OSKA brand.
+                        </p>
+                        <div class="leader-contact">
+                            <a href="mailto:operations@oska.ng" class="contact-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="contact-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTO/Technical Director -->
+                <div class="leader-card">
+                    <div class="leader-image">
+                        <i class="fas fa-user-graduate"></i>
+                        <!-- Replace with actual image: <img src="images/cto-photo.jpg" alt="CTO Name"> -->
+                    </div>
+                    <div class="leader-info">
+                        <h3 class="leader-name">[CTO Name]</h3>
+                        <p class="leader-title">Chief Technology Officer</p>
+                        <p class="leader-bio">
+                            Leading OSKA's technological innovation and digital transformation initiatives, [Name] ensures our company stays at the forefront of industry advancements. With expertise in [relevant technologies], they drive the integration of cutting-edge solutions across all our business sectors.
+                        </p>
+                        <div class="leader-contact">
+                            <a href="mailto:technology@oska.ng" class="contact-link">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="#" class="contact-link">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Values Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Core Values</h2>
+                <p class="section-subtitle">
+                    The principles that guide everything we do
+                </p>
+            </div>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="value-title">Integrity</h3>
+                    <p class="value-description">
+                        We conduct business with the highest ethical standards, building trust through transparency and honest communication.
+                    </p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="value-title">Innovation</h3>
+                    <p class="value-description">
+                        We embrace new technologies and creative solutions to deliver cutting-edge services across all our industries.
+                    </p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="value-title">Excellence</h3>
+                    <p class="value-description">
+                        We strive for perfection in every project, setting industry standards and exceeding client expectations.
+                    </p>
+                </div>
+
+                <div class="value-item">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="value-title">Partnership</h3>
+                    <p class="value-description">
+                        We build lasting relationships with clients, treating every engagement as a strategic partnership for mutual success.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Stats Section -->
+    <section class="section stats-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">OSKA by the Numbers</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">
+                    Our track record of success and growth
+                </p>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number">5</span>
+                    <span class="stat-label">Industry Sectors</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Satisfied Clients</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Team Members</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">10+</span>
+                    <span class="stat-label">Years Experience</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <i class="fas fa-building"></i>
+                        <span>OSKA</span>
+                    </div>
+                    <p>Your trusted partner across multiple industries, delivering excellence in every project and building lasting relationships with our clients.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services/oil-gas.html">Oil & Gas Services</a></li>
+                        <li><a href="services/car-mart.html">Car Mart</a></li>
+                        <li><a href="services/farming.html">Farming Concepts</a></li>
+                        <li><a href="services/bricks-keys.html">Bricks & Keys</a></li>
+                        <li><a href="services/acquisition.html">Acquisition & Value Creation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#careers">Careers</a></li>
+                        <li><a href="#news">News & Updates</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>
+                        Email: info@oska.ng<br>
+                        Support: support@oska.ng<br>
+                        Phone: +234 813 750 3380<br>
+                        Address: 1, Olayinka Obire Street,<br>
+                        Osapa London Estate Gardens,<br>
+                        Lekki, Lagos.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 OSKA. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
