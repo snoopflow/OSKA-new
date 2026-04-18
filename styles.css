@@ -234,7 +234,10 @@ body {
   background: transparent;
   color: var(--text);
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s, color 0.3s;
+  transition:
+    background 0.3s,
+    transform 0.3s,
+    color 0.3s;
 }
 
 .theme-toggle:hover {
