@@ -150,7 +150,9 @@ body {
 }
 
 .hero-home {
-  background: linear-gradient(135deg, #141a46, #234665, #352f42);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("assets/home image.avif") center / cover no-repeat;
 }
 
 .hero-about {
@@ -164,36 +166,31 @@ body {
 .hero-oil-gas {
   background:
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
-    url("https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")
-      center / cover;
+    url("assets/oil and gas.png") center / cover;
 }
 
 .hero-car-mart {
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
-    url("https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")
-      center / cover;
+    url("assets/car mart.jpg") center / cover;
 }
 
 .hero-farming {
   background:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
-    url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")
-      center / cover;
+    url("assets/farming.avif") center / cover;
 }
 
 .hero-bricks-keys {
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
-    url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")
-      center / cover;
+    url("assets/bricks and keys.avif") center / cover;
 }
 
 .hero-acquisition {
   background:
     linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
-    url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80")
-      center / cover;
+    url("assets/aquisition.jpg") center / cover;
 }
 
 .hero-title {
@@ -235,12 +232,12 @@ body {
 }
 
 .btn-primary {
-  background: #fef08a;
-  color: #111827;
+  background: #22c55e;
+  color: white;
 }
 
 .btn-primary:hover {
-  background: #fbbf24;
+  background: #16a34a;
   transform: translateY(-2px);
 }
 
@@ -339,24 +336,39 @@ body {
 }
 
 /* Background Gradients */
-.bg-orange {
+
+.bg-plain {
   background: linear-gradient(135deg, #141a46, #234665, #352f42);
+}
+
+.bg-orange {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+    url("assets/oil and gas.png") center / cover;
 }
 
 .bg-purple {
-  background: linear-gradient(135deg, #141a46, #234665, #352f42);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+    url("assets/car mart.jpg") center / cover;
 }
 
 .bg-green {
-  background: linear-gradient(135deg, #141a46, #234665, #352f42);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.2)),
+    url("assets/farming.avif") center / cover;
 }
 
 .bg-yellow {
-  background: linear-gradient(135deg, #141a46, #234665, #352f42);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)),
+    url("assets/bricks and keys.avif") center / cover;
 }
 
 .bg-cyan {
-  background: linear-gradient(135deg, #141a46, #234665, #352f42);
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)),
+    url("assets/aquisition.jpg") center / cover;
 }
 
 .bg-purple-gradient {
