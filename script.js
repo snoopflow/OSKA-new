@@ -132,6 +132,54 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(el);
   });
 
+  function initHeroSlider() {
+    const slider = document.querySelector(".hero-slider");
+    if (!slider) return;
+
+    const slides = Array.from(slider.querySelectorAll(".hero-slide"));
+    const dots = Array.from(document.querySelectorAll(".hero-slider-dot"));
+    if (!slides.length || !dots.length) return;
+
+    let current = 0;
+    let intervalId = null;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle("active", i === index);
+      });
+      dots.forEach((dot, i) => {
+        dot.classList.toggle("active", i === index);
+      });
+      current = index;
+    }
+
+    function startLoop() {
+      if (intervalId) return;
+      intervalId = setInterval(() => {
+        showSlide((current + 1) % slides.length);
+      }, 4500);
+    }
+
+    function stopLoop() {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        showSlide(index);
+      });
+    });
+
+    slider.addEventListener("mouseenter", stopLoop);
+    slider.addEventListener("mouseleave", startLoop);
+
+    showSlide(0);
+    startLoop();
+  }
+
+  initHeroSlider();
+
   function animateStatNumber(el, duration = 1600) {
     const target = parseInt(el.dataset.target, 10);
     if (isNaN(target) || el.classList.contains("counted")) return;

@@ -258,12 +258,133 @@ body {
   padding: 120px 0 80px;
   text-align: center;
   color: white;
+  position: relative;
+  min-height: 580px;
+  overflow: hidden;
 }
 
-.hero-home {
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 120px 0 80px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-slide-welcome {
   background:
     linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("assets/home image.avif") center / cover no-repeat;
+}
+
+.hero-slide-oil-gas {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("assets/oil and gas.png") center / cover no-repeat;
+}
+
+.hero-slide-car-mart {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("assets/car mart.jpg") center / cover no-repeat;
+}
+
+.hero-slide-farming {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("assets/farming.avif") center / cover no-repeat;
+}
+
+.hero-slide-bricks-keys {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("assets/bricks and keys.avif") center / cover no-repeat;
+}
+
+.hero-slide-acquisition {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+    url("assets/aquisition.jpg") center / cover no-repeat;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-service-slide-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-slider-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.hero-slider-dot {
+  width: 12px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.hero-slider-dot.active {
+  background: rgba(255, 255, 255, 0.95);
+  transform: scale(1.2);
+}
+
+.hero-buttons {
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 520px;
+  }
+
+  .hero-slide {
+    padding: 100px 0 60px;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 480px;
+  }
+
+  .hero-slide {
+    padding: 90px 0 50px;
+  }
+}
+
+.hero-about {
+  background: linear-gradient(135deg, #141a46, #234665, #352f42);
 }
 
 .hero-about {
