@@ -132,6 +132,55 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(el);
   });
 
+  function animateStatNumber(el, duration = 1600) {
+    const target = parseInt(el.dataset.target, 10);
+    if (isNaN(target) || el.classList.contains("counted")) return;
+    const suffix = el.dataset.suffix || "";
+    const startTime = performance.now();
+
+    function tick(now) {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.floor(progress * target);
+      el.textContent = `${current}${suffix}`;
+
+      if (progress < 1) {
+        requestAnimationFrame(tick);
+      } else {
+        el.textContent = `${target}${suffix}`;
+        el.classList.add("counted");
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+
+  const statsSection = document.querySelector(".stats-section");
+  if (statsSection) {
+    const statNumbers = statsSection.querySelectorAll(".stat-number");
+    statNumbers.forEach((el) => {
+      const target = parseInt(el.dataset.target, 10);
+      const suffix = el.dataset.suffix || "";
+      if (!isNaN(target)) {
+        el.textContent = `0${suffix}`;
+      }
+    });
+
+    const statsObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            statNumbers.forEach((el) => animateStatNumber(el));
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
+
+    statsObserver.observe(statsSection);
+  }
+
   // Contact form handling
   const contactForm = document.getElementById("contact-form");
   if (contactForm) {
